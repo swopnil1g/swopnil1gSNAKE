@@ -64,3 +64,19 @@
     border-radius: 15px;
     border-width: 2px;
 }
+
+.controls {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.controls button {
+    padding: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
