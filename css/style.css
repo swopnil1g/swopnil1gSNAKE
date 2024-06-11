@@ -44,9 +44,9 @@
 
 .head {
     background: linear-gradient(rgb(255, 0, 0), rgb(0, 0, 0));
-    border: 2px solid whitesmoke;
+    border: 2px solid rgb(179, 255, 0);
     transform: scale(1.02);
-    border-radius: 9px;
+    border-radius: 1px;
 }
 
 
@@ -54,14 +54,14 @@
 .snake{
     background: linear-gradient(rgb(0, 0, 0), rgb(75, 75, 36));
     border: .25vmin solid white;
-    border-radius: 12px;
+    border-radius: 2px;
     border: 2px solid whitesmoke;
 }
 
 .food {
-    background: linear-gradient(rgb(221, 138, 138), green);
+   background: linear-gradient(yellow, green);
     border: .25vmin solid black;
-    border-radius: 15px;
+    border-radius: 3px;
     border-width: 2px;
 }
 
