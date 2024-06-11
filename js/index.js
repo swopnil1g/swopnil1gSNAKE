@@ -146,3 +146,62 @@ window.addEventListener('keydown', e => {
             break;
     }
 });
+
+
+// Add event listeners for touch controls
+document.getElementById('up').addEventListener('click', () => {
+    inputDir = {x: 0, y: -1};
+    moveSound.play();
+});
+
+document.getElementById('down').addEventListener('click', () => {
+    inputDir = {x: 0, y: 1};
+    moveSound.play();
+});
+
+document.getElementById('left').addEventListener('click', () => {
+    inputDir = {x: -1, y: 0};
+    moveSound.play();
+});
+
+document.getElementById('right').addEventListener('click', () => {
+    inputDir = {x: 1, y: 0};
+    moveSound.play();
+});
+
+// Swipe detection
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+
+function handleGesture() {
+    const deltaX = touchEndX - touchStartX;
+    const deltaY = touchEndY - touchStartY;
+
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        if (deltaX > 0) {
+            inputDir = {x: 1, y: 0}; // Swipe right
+        } else {
+            inputDir = {x: -1, y: 0}; // Swipe left
+        }
+    } else {
+        if (deltaY > 0) {
+            inputDir = {x: 0, y: 1}; // Swipe down
+        } else {
+            inputDir = {x: 0, y: -1}; // Swipe up
+        }
+    }
+    moveSound.play();
+}
+
+document.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+});
+
+document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
+    handleGesture();
+});
